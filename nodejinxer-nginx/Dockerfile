@@ -1,9 +1,10 @@
-FROM nginx
+FROM nginx:1.17.3-alpine
 
-WORKDIR /usr/share/nginx/html
+WORKDIR /var/www/html
 
-RUN apt-get update && apt-get install -y curl
-COPY nginx/config/default.conf /etc/nginx/conf.d/default.conf
+COPY config/default.conf /etc/nginx/conf.d/default.conf
+
+COPY src/ ./
 
 EXPOSE 80
 
