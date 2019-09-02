@@ -1,14 +1,17 @@
-var http = require('http');
+var express = require('express');
+var app = express();
+var dotenv = require('dotenv').config();
 
-function startServer(host, port) {
-    http.createServer(function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Nice to meet you at ' + host + ':' + port);
-    }).listen(port, host);
+let config = require('./config')[process.env.NODE_ENV]
 
-    console.log('Warming up your server at ' + host + ':' + port);
-}
+app.use(express.json());
+app.get('/', (req, res) => {
+    res.status(200).send("HELLO");
+})
 
-startServer('localhost', 3000);
-startServer('localhost', 3001);
-startServer('localhost', 3002); 
+
+app.listen(config.port, (err) => {
+    console.log('Server in port: ' + config.port);
+})
+
+
