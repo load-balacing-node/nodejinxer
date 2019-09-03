@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  web:
+    build: ./nodejinxer-nginx
+    ports:
+      - "8080:80"
+  node1:
+    depends_on:
+      - web
+    image: zireael/node-balanced
+    restart: always
+    environment:
+      - PORT: 3001
+  node2:
+    depends_on:
+      - web
+    image: zireael/node-balanced
+    restart: always
+    environment:
+      - PORT: 3002
+  node3:
+    depends_on:
+      - web
+    image: zireael/node-balanced
+    restart: always
+    environment:
+      - PORT: 3003

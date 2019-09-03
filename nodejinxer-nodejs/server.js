@@ -6,6 +6,7 @@ const cors = require('cors');
 
 let config = require('./config')[process.env.NODE_ENV]
 
+app.use(cors());
 app.use(express.json());
 app.get('/', (req, res) => {
     res.status(200).json(data);
