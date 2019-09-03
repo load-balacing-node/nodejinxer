@@ -12,11 +12,10 @@ app.get('/', (req, res) => {
     res.status(200).json(data);
 })
 
+console.log(config);
 
-app.listen(config.port, (err) => {
-    console.log('Server in port: ' + config.port);
-    
-    
+app.listen(3000, (err) => {
+    console.log('Server in port: ' + 3000);
 })
 
 
