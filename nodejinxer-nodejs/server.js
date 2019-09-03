@@ -11,9 +11,11 @@ app.get('/', (req, res) => {
     res.status(200).json(data);
 })
 
+app.get('/terminator', (req, res) => {
+    res.status(200).send("not yet");
+})
 
 app.listen(3000, (err) => {
     console.log('Server in port: ' + 3000);
 })
-
 
