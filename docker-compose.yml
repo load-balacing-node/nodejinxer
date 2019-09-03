@@ -7,21 +7,21 @@ services:
   node1:
     depends_on:
       - web
-    image: zireael/node-balanced
+    build: ./nodejinxer-nodejs
     restart: always
-    environment:
-      - PORT: 3001
+    ports:
+      - "3001:3000"
   node2:
     depends_on:
       - web
-    image: zireael/node-balanced
+    build: ./nodejinxer-nodejs
     restart: always
-    environment:
-      - PORT: 3002
+    ports:
+      - "3002:3000"
   node3:
     depends_on:
       - web
-    image: zireael/node-balanced
+    build: ./nodejinxer-nodejs
     restart: always
-    environment:
-      - PORT: 3003
+    ports:
+      - "3003:3000"
