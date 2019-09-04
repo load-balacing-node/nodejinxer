@@ -1,19 +1,19 @@
 version: '3'
 services:
   node1:
-    image: zireael/basic-node
+    build: ./nodejinxer-nodejs
     restart: always
   node2:
-    image: zireael/basic-node
+    build: ./nodejinxer-nodejs
     restart: always
   node3:
-    image: zireael/basic-node
+    build: ./nodejinxer-nodejs
     restart: always
   web:
     depends_on:
       - node1
       - node2
       - node3
-    image: zireael/nginx-balanced
+    build: ./nodejinxer-nginx
     ports:
       - "8080:80"
